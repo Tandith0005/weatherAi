@@ -23,7 +23,7 @@ const Sidebar = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Handle scroll to update active section (only on home page)
+  // Handle scroll and update active section
   useEffect(() => {
     if (!mounted || !isHomePage) return;
 
@@ -151,9 +151,9 @@ const Sidebar = () => {
 
         {/* Conditional Content: Nav Links or Go Back */}
         {isHomePage ? (
-          // Home Page - Show Navigation Links (Your original code)
+          // Home Page - Show Navigation Links
           <>
-            <nav className="flex-1 p-3 sm:p-4 overflow-y-auto min-h-0">
+            <nav className="p-3 sm:p-4">
               <ul className="space-y-1.5 sm:space-y-2">
                 {navItems.map((item) => {
                   const isActive = activeSection === item.href.replace("#", "");
@@ -174,7 +174,9 @@ const Sidebar = () => {
                         `}
                       >
                         <span className="text-xl">{item.icon}</span>
-                        <span className="font-medium truncate">{item.name}</span>
+                        <span className="font-medium truncate">
+                          {item.name}
+                        </span>
                       </a>
                     </li>
                   );
@@ -184,8 +186,17 @@ const Sidebar = () => {
 
             <hr className="border-sidebar-border mx-3 sm:mx-4 flex-shrink-0" />
 
-            {/* Weather Analytics & Tree Analysis Section (Your original code) */}
+            {/* API Usage & Weather Analytics & Tree Analysis Section */}
             <div className="p-3 sm:p-4 pb-6 flex-shrink-0 space-y-8 mt-5">
+              {/* API Usage Button */}
+              <Link
+                href="/usage"
+                className="relative flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-violet-600 to-[#005AC2] px-3 sm:px-4 py-2.5 sm:py-3 text-white transition hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base w-full"
+              >
+                <span className="text-xl">📊</span>
+                <span className="font-medium truncate">API Usage</span>
+              </Link>
+
               {/* Weather Analytics Button */}
               <Link
                 href="/analysis"
@@ -197,7 +208,7 @@ const Sidebar = () => {
                     Charts
                   </span>
                 </span>
-                <span className="text-xl">📊</span>
+                <span className="text-xl">📈</span>
                 <span className="font-medium truncate">Weather Analytics</span>
               </Link>
 
@@ -219,10 +230,10 @@ const Sidebar = () => {
             </div>
           </>
         ) : (
-          // Other Pages - Show only Go Back Button with your existing analytics buttons
+          // Other Pages - Show only Go Back Button
           <>
             {/* Go Back Button */}
-            <div className="flex-1 flex items-start justify-center p-4 pt-8">
+            <div className="p-4 pt-8">
               <Link
                 href="/"
                 className="flex items-center gap-3 px-6 py-4 rounded-xl bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 text-foreground hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 w-full justify-center group"
@@ -234,8 +245,17 @@ const Sidebar = () => {
 
             <hr className="border-sidebar-border mx-3 sm:mx-4 flex-shrink-0" />
 
-            {/* Weather Analytics & Tree Analysis Section (Your original code but without the space-y-8 mt-5) */}
-            <div className="p-3 sm:p-4 pb-6 flex-shrink-0 space-y-3">
+            {/* API Usage & Weather Analytics & Tree Analysis Section ( */}
+            
+            <div className="p-3 sm:p-4 pb-6 flex-shrink-0 space-y-8 mt-5">
+              <Link
+                href="/usage"
+                className="relative flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-violet-600 to-[#005AC2] px-3 sm:px-4 py-2.5 sm:py-3 text-white transition hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base w-full"
+              >
+                <span className="text-xl">📊</span>
+                <span className="font-medium truncate">API Usage</span>
+              </Link>
+
               {/* Weather Analytics Button */}
               <Link
                 href="/analysis"
@@ -247,7 +267,7 @@ const Sidebar = () => {
                     Charts
                   </span>
                 </span>
-                <span className="text-xl">📊</span>
+                <span className="text-xl">📈</span>
                 <span className="font-medium truncate">Weather Analytics</span>
               </Link>
 

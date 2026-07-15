@@ -1,6 +1,8 @@
 export const demoResponse ={
-  "lat": -1.2921,
-  "lon": 36.8219,
+  // "lat": -1.2921,
+  // "lon": 36.8219,
+  "lat": 23.8103,
+  "lon": 90.4125,
   "units": "metric",
   "days": 7,
   "current": {
@@ -354,4 +356,13 @@ export const demoResponse ={
     }
   ],
   "ai_summary": null
+}
+
+
+export const demoUsage = {
+  "plan": "free",
+  "used": 9,
+  "limit": 1000,
+  "remaining": 991,
+  "unlimited": false
 }

@@ -4,6 +4,7 @@ import { WiCloudy, WiRain, WiThermometer } from "react-icons/wi";
 import { FaCalendarAlt, FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { formatDate, getWeatherCondition } from "@/src/lib/weatherConstants";
 import { WeatherData } from "../interface/weatherInterface";
+import Link from "next/link";
 
 interface DailyForecastProps {
   weather: WeatherData;
@@ -31,9 +32,9 @@ const DailyForecast = ({ weather }: DailyForecastProps) => {
             7 Day Forecast
           </span>
         </h2>
-        <span className="text-xs text-muted bg-sidebar-bg px-3 py-1 rounded-full border border-sidebar-border">
-          {uniqueDays.length} Days
-        </span>
+        <Link href="/analysis">
+        <span className="bg-gradient-to-r from-[#D8E2FF] to-[#3B82F6] bg-clip-text text-transparent text-xl underline">View Charts</span>
+        </Link>
       </div>
 
       <div className="bg-sidebar-bg rounded-2xl p-6 border border-sidebar-border shadow-lg">

@@ -24,8 +24,8 @@ import {
 } from "react-icons/wi";
 import { FaTemperatureHigh, FaTint } from "react-icons/fa";
 import { WeatherData } from "@/src/components/interface/weatherInterface";
-import { demoResponse } from "@/src/components/constants/demoResponse";
 import { formatDate, getWeatherCondition } from "@/src/lib/weatherConstants";
+import { weatherApi } from "@/src/lib/weatherApi";
 
 // Proper types for Recharts Tooltip
 interface CustomTooltipProps {
@@ -91,10 +91,41 @@ const WeatherAnalysis = () => {
   const [activeChart, setActiveChart] = useState<"temperature" | "wind">("temperature");
 
   useEffect(() => {
-    setTimeout(() => {
-      setWeather(demoResponse);
-      setLoading(false);
-    }, 500);
+    const fetchWeather = async () => {
+      try {
+        // Get user location or use fallback
+        const getLocation = (): Promise<{lat: number; lon: number}> => {
+          return new Promise((resolve) => {
+            if (!navigator.geolocation) {
+              resolve({ lat: -1.2921, lon: 36.8219 });
+              return;
+            }
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                resolve({
+                  lat: position.coords.latitude,
+                  lon: position.coords.longitude,
+                });
+              },
+              () => {
+                // User denied permission - use fallback
+                resolve({ lat: -1.2921, lon: 36.8219 });
+              }
+            );
+          });
+        };
+
+        const { lat, lon } = await getLocation();
+        const data = await weatherApi.getWeather(lat, lon, 7);
+        setWeather(data);
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchWeather();
   }, []);
 
   if (loading) {

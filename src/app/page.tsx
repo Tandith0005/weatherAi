@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { demoResponse } from "../components/constants/demoResponse";
 import Hero from "../components/hero/Hero";
-import { getWeatherCondition } from "../lib/weatherConstants";
 import { WeatherData } from "../components/interface/weatherInterface";
 import HourlyWeather from "../components/weather/hourlyWeather";
 import DailyWeather from "../components/weather/DailyWeather";
 import AISummary from "../components/weather/AISummary";
+import { weatherApi } from "../lib/weatherApi";
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -17,9 +17,8 @@ export default function Home() {
   useEffect(() => {
     const fetchWeather = async (lat: number, lon: number) => {
       try {
-        // const data = await weatherApi.getWeather(lat, lon, 7);
-        // setWeather(data);
-        setWeather(demoResponse);
+        const data = await weatherApi.getWeather(lat, lon, 7);
+        setWeather(data);
       } catch (error) {
         toast.error("Failed to fetch weather data");
         console.error(error);
@@ -29,7 +28,7 @@ export default function Home() {
     };
 
     if (!navigator.geolocation) {
-      fetchWeather(-1.2921, 36.8219); // fallback
+      fetchWeather(-1.2921, 36.8219); // fallback (Nairobi, Kenya)
       return;
     }
 
@@ -39,6 +38,7 @@ export default function Home() {
       },
       () => {
         // User denied permission
+        toast.error("Location permission denied. Using default location.");
         fetchWeather(-1.2921, 36.8219);
       },
     );
@@ -53,7 +53,11 @@ export default function Home() {
   }
 
   if (!weather) {
-    return <div>No weather data available</div>;
+    return (
+      <div className="flex items-center justify-center h-96">
+        <p className="text-muted">No weather data available</p>
+      </div>
+    );
   }
 
   return (
@@ -66,7 +70,7 @@ export default function Home() {
 
       {/* Daily Forecast Section */}
       <DailyWeather weather={weather} />
-      
+
       {/* AI Summary */}
       <AISummary weather={weather} />
     </div>

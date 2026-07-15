@@ -9,12 +9,27 @@ import {
 } from "@/src/lib/weatherConstants";
 import { WeatherData } from "../interface/weatherInterface";
 import { LuArrowDownWideNarrow, LuArrowUpWideNarrow } from "react-icons/lu";
+import { useEffect, useState } from "react";
+import { fetchLocationByCoords } from "@/src/lib/geocoding";
 
 interface HeroProps {
   weather: WeatherData;
 }
 
+interface LocationInfo {
+  city: string;
+  country: string;
+  displayName: string;
+}
+
 const Hero = ({ weather }: HeroProps) => {
+  const [location, setLocation] = useState<LocationInfo>({
+    city: 'Loading...',
+    country: '',
+    displayName: 'Loading location...',
+  });
+  const [isLoadingLocation, setIsLoadingLocation] = useState(true);
+
   const condition = getWeatherCondition(weather.current.weathercode);
   const gradient = getWeatherGradient(
     weather.current.weathercode,
@@ -22,6 +37,27 @@ const Hero = ({ weather }: HeroProps) => {
   );
 
   const isDay = weather.current.is_day === 1;
+
+  useEffect(() => {
+    const getLocation = async () => {
+      try {
+        setIsLoadingLocation(true);
+        const locationData = await fetchLocationByCoords(weather.lat, weather.lon);
+        setLocation(locationData);
+      } catch (error) {
+        console.error('Error fetching location:', error);
+        setLocation({
+          city: 'Unknown City',
+          country: 'Unknown Country',
+          displayName: 'Unknown Location',
+        });
+      } finally {
+        setIsLoadingLocation(false);
+      }
+    };
+
+    getLocation();
+  }, [weather.lat, weather.lon]);
 
   return (
     <section id="current" className="relative overflow-hidden rounded-2xl bg-sidebar-bg border border-sidebar-border lg:min-h-[600px] xl:min-h-[650px] 2xl:min-h-[700px] flex flex-col">
@@ -42,7 +78,14 @@ const Hero = ({ weather }: HeroProps) => {
           {/* Left: City, Country and Date */}
           <div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#D8E2FF] to-[#3B82F6] bg-clip-text text-transparent">
-              Nairobi, Kenya
+              {isLoadingLocation ? (
+                <span className="inline-flex items-center gap-2">
+                  Loading...
+                  <span className="inline-block w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></span>
+                </span>
+              ) : (
+                `${location.city}, ${location.country}`
+              )}
             </h1>
             <p className="text-muted text-sm sm:text-base lg:text-lg mt-1">
               {formatFullDate(weather?.current?.time)}

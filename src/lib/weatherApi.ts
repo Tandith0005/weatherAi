@@ -21,7 +21,7 @@ const getWeather = async (lat: number, lon: number, days: number = 7) => {
 
 const getUsage = async () => {
   try {
-    const response = await apiClient.get("/account/usage");
+    const response = await apiClient.get("/usage");
     return response.data;
   } catch (error) {
     console.error("Error fetching usage:", error);

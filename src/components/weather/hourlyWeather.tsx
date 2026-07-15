@@ -3,6 +3,7 @@
 import { WiDayCloudy } from "react-icons/wi";
 import { formatTime, getWeatherCondition } from "@/src/lib/weatherConstants";
 import { WeatherData } from "../interface/weatherInterface";
+import Link from "next/link";
 
 interface HourlyWeatherProps {
   weather: WeatherData;
@@ -11,9 +12,15 @@ interface HourlyWeatherProps {
 const HourlyWeather = ({ weather }: HourlyWeatherProps) => {
   return (
     <section id="hourly" className="scroll-mt-16">
-      <h2 className="md:text-4xl sm:text-2xl  font-bold mb-6 flex items-center md:gap-4 sm:gap-2 ">
-        <WiDayCloudy className="w-7 h-7 text-cyan-500" />
+      <h2 className="md:text-4xl sm:text-2xl  font-bold mb-6 flex justify-between items-center md:gap-4 sm:gap-2 ">
+        <div className="flex items-center gap-2">
+          <WiDayCloudy className="w-7 h-7 text-cyan-500" />
         <span className="bg-gradient-to-r from-[#D8E2FF] to-[#3B82F6] bg-clip-text text-transparent">Hourly Forecast</span>
+        </div>
+        <Link href="/analysis">
+        <span className="bg-gradient-to-r from-[#D8E2FF] to-[#3B82F6] bg-clip-text text-transparent text-xl underline">View Charts</span>
+        </Link>
+
       </h2>
 
       <div className="rounded-xl p-6 ">

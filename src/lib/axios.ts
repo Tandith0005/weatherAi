@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = process.env.BASE_URL || "https://api.weather-ai.co/v1";
-const API_KEY = process.env.WEATHER_API_KEY;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://api.weather-ai.co/v1";
+const API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
 // Create axios instance with default config
 export const apiClient = axios.create({
