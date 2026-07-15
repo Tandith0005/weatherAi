@@ -8,7 +8,6 @@ import { getWeatherCondition } from "../lib/weatherConstants";
 import { WeatherData } from "../components/interface/weatherInterface";
 import HourlyWeather from "../components/weather/hourlyWeather";
 import DailyWeather from "../components/weather/DailyWeather";
-import ExtendedDaysWeather from "../components/weather/ExtendedDaysWeather";
 import AISummary from "../components/weather/AISummary";
 
 export default function Home() {
@@ -67,10 +66,7 @@ export default function Home() {
 
       {/* Daily Forecast Section */}
       <DailyWeather weather={weather} />
-
-      {/* Extended Days Section */}
-      <ExtendedDaysWeather weather={weather} />
-
+      
       {/* AI Summary */}
       <AISummary weather={weather} />
     </div>

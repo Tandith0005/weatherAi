@@ -28,35 +28,35 @@ export const demoResponse ={
       "weathercode": 3
     },
     {
-      "date": "2026-07-15",
-      "temp_max": 25.4,
-      "temp_min": 14.9,
-      "precipitation": 0,
-      "weathercode": 3
-    },
-    {
-      "date": "2026-07-15",
-      "temp_max": 25.4,
-      "temp_min": 14.9,
-      "precipitation": 0,
-      "weathercode": 3
-    },
-    {
-      "date": "2026-07-15",
-      "temp_max": 25.4,
-      "temp_min": 14.9,
-      "precipitation": 0,
-      "weathercode": 3
-    },
-    {
       "date": "2026-07-16",
+      "temp_max": 25.4,
+      "temp_min": 14.9,
+      "precipitation": 0,
+      "weathercode": 3
+    },
+    {
+      "date": "2026-07-17",
+      "temp_max": 25.4,
+      "temp_min": 14.9,
+      "precipitation": 0,
+      "weathercode": 3
+    },
+    {
+      "date": "2026-07-188",
+      "temp_max": 25.4,
+      "temp_min": 14.9,
+      "precipitation": 0,
+      "weathercode": 3
+    },
+    {
+      "date": "2026-07-19",
       "temp_max": 26.1,
       "temp_min": 13.1,
       "precipitation": 0.1,
       "weathercode": 51
     },
     {
-      "date": "2026-07-16",
+      "date": "2026-07-20",
       "temp_max": 26.1,
       "temp_min": 13.1,
       "precipitation": 0.1,

@@ -24,7 +24,7 @@ const Hero = ({ weather }: HeroProps) => {
   const isDay = weather.current.is_day === 1;
 
   return (
-    <section className="relative overflow-hidden rounded-2xl bg-sidebar-bg border border-sidebar-border lg:min-h-[600px] xl:min-h-[650px] 2xl:min-h-[700px] flex flex-col">
+    <section id="current" className="relative overflow-hidden rounded-2xl bg-sidebar-bg border border-sidebar-border lg:min-h-[600px] xl:min-h-[650px] 2xl:min-h-[700px] flex flex-col">
       {/* Background Gradient */}
       <div
         className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-10`}

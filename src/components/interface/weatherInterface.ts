@@ -24,4 +24,5 @@ export interface WeatherData {
     precipitation: number;
     weathercode: number;
   }>;
+  ai_summary: string | null;
 }
