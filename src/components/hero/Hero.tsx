@@ -77,7 +77,7 @@ const Hero = ({ weather }: HeroProps) => {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 lg:mb-12">
           {/* Left: City, Country and Date */}
           <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#D8E2FF] to-[#3B82F6] bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r dark:from-[#D8E2FF] dark:to-[#3B82F6] from-[#2653d8] to-[#3B82F6] bg-clip-text text-transparent">
               {isLoadingLocation ? (
                 <span className="inline-flex items-center gap-2">
                   Loading...
@@ -107,7 +107,7 @@ const Hero = ({ weather }: HeroProps) => {
           <div className="sm:hidden flex flex-col items-center gap-4">
             {/* Temperature */}
             <div className="flex items-start">
-              <span className="text-7xl font-bold bg-linear-to-t from-[#D8E2FF] to-[#00d9ff] bg-clip-text text-transparent">
+              <span className="text-7xl font-bold bg-linear-to-t dark:from-[#D8E2FF] dark:to-[#00d9ff] from-[#58617c] to-[#00d9ff] bg-clip-text text-transparent">
                 {Math.round(weather.current.temperature)}°
               </span>
               <span className="text-4xl font-light text-muted ml-1 mt-2">
@@ -157,7 +157,7 @@ const Hero = ({ weather }: HeroProps) => {
             {/* Temperature */}
             <div className="flex justify-center">
               <div className="flex items-start">
-                <span className="text-7xl sm:text-8xl md:text-9xl lg:text-[120px] xl:text-[140px] 2xl:text-[160px] font-bold bg-linear-to-t from-[#D8E2FF] to-[#00d9ff] bg-clip-text text-transparent leading-none">
+                <span className="text-7xl sm:text-8xl md:text-9xl lg:text-[120px] xl:text-[140px] 2xl:text-[160px] font-bold bg-linear-to-t dark:from-[#D8E2FF] dark:to-[#00d9ff] from-[#58617c] to-[#00d9ff] bg-clip-text text-transparent leading-none">
                   {Math.round(weather.current.temperature)}°
                 </span>
                 <span className="text-4xl sm:text-5xl md:text-2xl lg:text-3xl font-light text-muted ml-1 mt-2">

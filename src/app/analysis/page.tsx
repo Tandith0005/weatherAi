@@ -26,6 +26,7 @@ import { FaTemperatureHigh, FaTint } from "react-icons/fa";
 import { WeatherData } from "@/src/components/interface/weatherInterface";
 import { formatDate, getWeatherCondition } from "@/src/lib/weatherConstants";
 import { weatherApi } from "@/src/lib/weatherApi";
+import toast from "react-hot-toast";
 
 // Proper types for Recharts Tooltip
 interface CustomTooltipProps {
@@ -120,6 +121,7 @@ const WeatherAnalysis = () => {
         setWeather(data);
       } catch (error) {
         console.error("Error fetching weather data:", error);
+        toast.error("Failed to fetch weather data");
       } finally {
         setLoading(false);
       }

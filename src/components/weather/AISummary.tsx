@@ -63,7 +63,7 @@ const AISummary = ({ weather }: AISummaryProps) => {
     <section id="summary" className="scroll-mt-16 min-h-[400px]">
         <div className="flex items-center justify-between mb-6">
                 <h2 className="md:text-4xl sm:text-2xl  font-bold mb-6 flex items-center md:gap-4 sm:gap-2 md:mt-10 mt-2">
-                  <span className="bg-gradient-to-r from-[#D8E2FF] to-[#3B82F6] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r dark:from-[#D8E2FF] dark:to-[#3B82F6] from-[#2653d8] to-[#3B82F6] bg-clip-text text-transparent">
                     AI Generated Summary
                   </span>
                 </h2>
