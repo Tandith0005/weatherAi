@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { weatherApi } from "@/src/lib/weatherApi";
 import { 
   FaChartLine, 
@@ -30,16 +30,13 @@ const UsagePage = () => {
   const [loading, setLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  useEffect(() => {
-    fetchUsage();
-  }, []);
-
-  const fetchUsage = async (showToast: boolean = false) => {
+  // Use useCallback to memoize the function
+  const fetchUsage = useCallback(async (showToast: boolean = false) => {
     try {
       setIsRefreshing(true);
-    //   const data = await weatherApi.getUsage();
-    //   setUsage(data);
-    setUsage(demoUsage);
+      const data = await weatherApi.getUsage();
+      setUsage(data);
+    //   setUsage(demoUsage);
       if (showToast) {
         toast.success("Usage data refreshed!");
       }
@@ -50,7 +47,15 @@ const UsagePage = () => {
       setLoading(false);
       setIsRefreshing(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    // Use an IIFE or a separate function to handle the async call
+    const loadData = async () => {
+      await fetchUsage();
+    };
+    loadData();
+  }, [fetchUsage]);
 
   if (loading) {
     return (

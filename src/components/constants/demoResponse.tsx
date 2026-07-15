@@ -360,9 +360,46 @@ export const demoResponse ={
 
 
 export const demoUsage = {
-  "plan": "free",
+  "plan": "pro",
   "used": 9,
   "limit": 1000,
   "remaining": 991,
   "unlimited": false
+}
+
+export const demoTreeAnalysis = {
+  "analysis_id":           "Kx8mP2qRvTnZ",
+  "timestamp":             "2026-06-01T09:15:00.000Z",
+  "farmer_id":             "F-001",
+  "county":                "Bomet",
+  "location":              "Kapkimolwa Farm, Block C",
+  "land_acres":            2.5,
+  "total_tree_count":      84,
+  "tree_density_per_acre": 33.6,
+  "confidence_score":      0.87,
+  "canopy_coverage_pct":   41.2,
+  "tree_health": {
+    "healthy":             68,
+    "needs_care":          12,
+    "needs_replacement":    4
+  },
+  "low_confidence":        false,
+  "tree_species_guess":    "Tea (Camellia sinensis)",
+  "observations": [
+    "Dense canopy in northern quadrant — possible over-crowding",
+    "3 trees near water source show yellowing — likely waterlogging"
+  ],
+  "recommendations": [
+    "Consider thinning northern section to improve light penetration",
+    "Improve drainage around water source trees"
+  ],
+  "original_image_url":    "https://storage.googleapis.com/…/original.jpg",
+  "overlay_image_url":     "https://storage.googleapis.com/…/overlay.jpg",
+  "cv_debug": {
+    "orig_resolution": "4000x3000",
+    "work_resolution": "1500x1125",
+    "canopy_px":       412500,
+    "peaks_detected":  91,
+    "after_area_filter": 84
+  }
 }
