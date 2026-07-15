@@ -65,8 +65,7 @@ export const formatFullDate = (dateStr: string) => {
   return `${formattedDate} | ${formattedTime}`;
 };
 
-// Get weather background gradient
-// Get weather background gradient - Enhanced version
+// Get weather background gradient 
 export const getWeatherGradient = (code: number, isDay: number) => {
   if (isDay === 0) {
     // Night gradients

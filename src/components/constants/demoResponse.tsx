@@ -68,7 +68,7 @@ export const demoResponse ={
       "time": "2026-07-14T00:00",
       "temp": 15.1,
       "precipitation": 0,
-      "weathercode": 0
+      "weathercode": 3
     },
     {
       "time": "2026-07-14T01:00",
