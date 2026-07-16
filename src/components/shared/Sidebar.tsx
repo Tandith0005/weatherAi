@@ -186,17 +186,8 @@ const Sidebar = () => {
 
             <hr className="border-sidebar-border mx-3 sm:mx-4 flex-shrink-0" />
 
-            {/* API Usage & Weather Analytics & Tree Analysis Section */}
+            {/* Weather Analytics & Tree Analysis Section */}
             <div className="p-3 sm:p-4 pb-6 flex-shrink-0 space-y-8 mt-5">
-              {/* API Usage Button */}
-              <Link
-                href="/usage"
-                className="relative flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-violet-600 to-[#005AC2] px-3 sm:px-4 py-2.5 sm:py-3 text-white transition hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base w-full"
-              >
-                <span className="text-xl">📊</span>
-                <span className="font-medium truncate">API Usage</span>
-              </Link>
-
               {/* Weather Analytics Button */}
               <Link
                 href="/analysis"
@@ -226,6 +217,16 @@ const Sidebar = () => {
                     NEW
                   </span>
                 </span>
+              </Link>
+            </div>
+            {/* API Usage - Push to Bottom */}
+            <div className="p-3 sm:p-4 pb-6 mt-auto">
+              <Link
+                href="/usage"
+                className="relative flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-violet-600 to-[#005AC2] px-3 sm:px-4 py-2.5 sm:py-3 text-white transition hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base w-full"
+              >
+                <span className="text-xl">📊</span>
+                <span className="font-medium truncate">API Usage</span>
               </Link>
             </div>
           </>
@@ -245,17 +246,9 @@ const Sidebar = () => {
 
             <hr className="border-sidebar-border mx-3 sm:mx-4 flex-shrink-0" />
 
-            {/* API Usage & Weather Analytics & Tree Analysis Section ( */}
-            
-            <div className="p-3 sm:p-4 pb-6 flex-shrink-0 space-y-8 mt-5">
-              <Link
-                href="/usage"
-                className="relative flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-violet-600 to-[#005AC2] px-3 sm:px-4 py-2.5 sm:py-3 text-white transition hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base w-full"
-              >
-                <span className="text-xl">📊</span>
-                <span className="font-medium truncate">API Usage</span>
-              </Link>
+            {/* Weather Analytics & Tree Analysis Section ( */}
 
+            <div className="p-3 sm:p-4 pb-6 flex-shrink-0 space-y-8 mt-5">
               {/* Weather Analytics Button */}
               <Link
                 href="/analysis"
@@ -285,6 +278,16 @@ const Sidebar = () => {
                     NEW
                   </span>
                 </span>
+              </Link>
+            </div>
+            {/* API Usage - Push to Bottom */}
+            <div className="p-3 sm:p-4 pb-6 mt-auto">
+              <Link
+                href="/usage"
+                className="relative flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-violet-600 to-[#005AC2] px-3 sm:px-4 py-2.5 sm:py-3 text-white transition hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base w-full"
+              >
+                <span className="text-xl">📊</span>
+                <span className="font-medium truncate">API Usage</span>
               </Link>
             </div>
           </>

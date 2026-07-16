@@ -66,34 +66,34 @@ const Footer = () => {
               Real-time weather data with AI-powered insights. Stay ahead of the weather with accurate forecasts and intelligent analysis.
             </p>
             <div className="flex gap-3">
-              <a
-                href="#"
+              <Link
+                href="https://github.com/Tandith0005"
                 className="p-2 rounded-lg bg-sidebar-border/50 hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 aria-label="GitHub"
               >
                 <FaGithub className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 rounded-lg bg-sidebar-border/50 hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <FaTwitter className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/sadnanzaman/"
                 className="p-2 rounded-lg bg-sidebar-border/50 hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://www.youtube.com/"
                 className="p-2 rounded-lg bg-sidebar-border/50 hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 aria-label="YouTube"
               >
                 <FaYoutube className="w-4 h-4" />
-              </a>
+              </Link>
+              <Link
+                href="https://twitter.com/"
+                className="p-2 rounded-lg bg-sidebar-border/50 hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                aria-label="Twitter"
+              >
+                <FaTwitter className="w-4 h-4" />
+              </Link>
             </div>
           </div>
 
@@ -185,7 +185,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 text-xs text-muted">
               <span>Made with</span>
               <FaHeart className="w-3 h-3 text-red-400 animate-pulse" />
-              <span>by Sadnan Zaman Tandith</span>
+              <Link href="https://www.linkedin.com/in/sadnanzaman/" ><span>by Sadnan Zaman Tandith</span></Link>
             </div>
 
             <div className="flex items-center gap-4">
