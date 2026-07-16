@@ -11,6 +11,8 @@ import { WeatherData } from "../interface/weatherInterface";
 import { LuArrowDownWideNarrow, LuArrowUpWideNarrow } from "react-icons/lu";
 import { useEffect, useState } from "react";
 import { fetchLocationByCoords } from "@/src/lib/geocoding";
+import Particles from "../ui/Particles";
+import { useTheme } from "next-themes";
 
 interface HeroProps {
   weather: WeatherData;
@@ -24,9 +26,9 @@ interface LocationInfo {
 
 const Hero = ({ weather }: HeroProps) => {
   const [location, setLocation] = useState<LocationInfo>({
-    city: 'Loading...',
-    country: '',
-    displayName: 'Loading location...',
+    city: "Loading...",
+    country: "",
+    displayName: "Loading location...",
   });
   const [isLoadingLocation, setIsLoadingLocation] = useState(true);
 
@@ -42,14 +44,17 @@ const Hero = ({ weather }: HeroProps) => {
     const getLocation = async () => {
       try {
         setIsLoadingLocation(true);
-        const locationData = await fetchLocationByCoords(weather.lat, weather.lon);
+        const locationData = await fetchLocationByCoords(
+          weather.lat,
+          weather.lon,
+        );
         setLocation(locationData);
       } catch (error) {
-        console.error('Error fetching location:', error);
+        console.error("Error fetching location:", error);
         setLocation({
-          city: 'Unknown City',
-          country: 'Unknown Country',
-          displayName: 'Unknown Location',
+          city: "Unknown City",
+          country: "Unknown Country",
+          displayName: "Unknown Location",
         });
       } finally {
         setIsLoadingLocation(false);
@@ -59,18 +64,41 @@ const Hero = ({ weather }: HeroProps) => {
     getLocation();
   }, [weather.lat, weather.lon]);
 
+  
+  const { theme } = useTheme();
+  const getParticleColors = () => {
+    if (theme === "dark") {
+      return ["#0cd2ff", "#4cd7f6", "#06B6D4", "#67E8F9", "#00d9ff"];
+    } else {
+      return ["#06B6D4", "#4cd7f6", "#00687A", "#0EA5E9", "#00d9ff"];
+    }
+  };
+
   return (
-    <section id="current" className="relative overflow-hidden rounded-2xl bg-sidebar-bg border border-sidebar-border lg:min-h-[600px] xl:min-h-[650px] 2xl:min-h-[700px] flex flex-col">
+    <section
+      id="current"
+      className="relative overflow-hidden rounded-2xl bg-sidebar-bg border border-sidebar-border lg:min-h-[600px] xl:min-h-[650px] 2xl:min-h-[700px] flex flex-col"
+    >
+      {/* Particles Background - Only on Hero */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Particles
+          particleColors={getParticleColors()}
+          particleCount={150}
+          particleSpread={8}
+          speed={0.06}
+          particleBaseSize={80}
+          alphaParticles={true}
+          disableRotation={false}
+          pixelRatio={
+            typeof window !== "undefined" ? window.devicePixelRatio : 1
+          }
+        />
+      </div>
       {/* Background Gradient */}
       <div
-        className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-10`}
+        className={`absolute `}
       />
 
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-      </div>
 
       <div className="relative p-6 sm:p-8 md:p-10 w-full flex-1 flex flex-col">
         {/* Header - Top Section */}
@@ -170,7 +198,9 @@ const Hero = ({ weather }: HeroProps) => {
             <div className="flex justify-start">
               <div className="flex flex-col gap-2 pl-6 lg:pl-12">
                 <div className="flex items-center gap-3">
-                  <span className="text-3xl sm:text-4xl lg:text-4xl">{condition.icon}</span>
+                  <span className="text-3xl sm:text-4xl lg:text-4xl">
+                    {condition.icon}
+                  </span>
                   <span className="text-xl sm:text-2xl lg:text-2xl font-medium text-foreground">
                     {condition.label}
                   </span>
@@ -213,10 +243,14 @@ const Hero = ({ weather }: HeroProps) => {
               <WiWindy className="w-6 h-6 lg:w-7 lg:h-7 text-cyan-500" />
             </div>
             <div>
-              <p className="text-xs lg:text-sm text-muted font-medium">Wind Speed</p>
+              <p className="text-xs lg:text-sm text-muted font-medium">
+                Wind Speed
+              </p>
               <p className="text-xl lg:text-2xl font-bold">
                 {Math.round(weather.current.windspeed)}{" "}
-                <span className="text-sm lg:text-base font-normal text-muted">km/h</span>
+                <span className="text-sm lg:text-base font-normal text-muted">
+                  km/h
+                </span>
               </p>
             </div>
           </div>
@@ -227,10 +261,14 @@ const Hero = ({ weather }: HeroProps) => {
               <FaCompass className="w-6 h-6 lg:w-7 lg:h-7 text-purple-500" />
             </div>
             <div>
-              <p className="text-xs lg:text-sm text-muted font-medium">Wind Direction</p>
+              <p className="text-xs lg:text-sm text-muted font-medium">
+                Wind Direction
+              </p>
               <p className="text-xl lg:text-2xl font-bold">
                 {weather.current.winddirection}°{" "}
-                <span className="text-sm lg:text-base font-normal text-muted">degrees</span>
+                <span className="text-sm lg:text-base font-normal text-muted">
+                  degrees
+                </span>
               </p>
             </div>
           </div>

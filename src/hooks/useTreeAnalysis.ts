@@ -41,7 +41,7 @@ export const useTreeAnalysis = () => {
       try {
         const data = await weatherApi.getUsage();
         setUsage(data);
-        // setUsage(demoUsage);
+        // setUsage(demoUsage); // Uncomment for demo
       } catch (error) {
         console.error('Error fetching usage:', error);
       } finally {

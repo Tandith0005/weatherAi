@@ -9,6 +9,7 @@ import DailyWeather from "../components/weather/DailyWeather";
 import AISummary from "../components/weather/AISummary";
 import CitySearch from "../components/weather/CitySearch";
 import { weatherApi } from "../lib/weatherApi";
+import { demoResponse } from "../components/constants/demoResponse";
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -22,6 +23,7 @@ export default function Home() {
       setIsSearching(true);
       const data = await weatherApi.getWeather(lat, lon, 7);
       setWeather(data);
+      // setWeather(demoResponse) // for demo
       if (cityName) {
         setSelectedCity(cityName);
       }

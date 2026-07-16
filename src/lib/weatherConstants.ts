@@ -65,6 +65,7 @@ export const formatFullDate = (dateStr: string) => {
   return `${formattedDate} | ${formattedTime}`;
 };
 
+// (DEPRECATED)---------- SINCE WE USED REACT BITS WE DON'T NEED IT FOR NOW BUT KEEPING IT FOR REFRENCE IF NEEDED IN FUTURE--------------------------------
 // Get weather background gradient 
 export const getWeatherGradient = (code: number, isDay: number) => {
   if (isDay === 0) {

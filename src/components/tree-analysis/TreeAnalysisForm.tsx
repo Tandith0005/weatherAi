@@ -193,13 +193,13 @@ export const TreeAnalysisForm = ({
               </>
             )}
           </button>
-          <button
+          {/* <button
             type="button"
             onClick={onLoadDemo}
             className="px-6 py-3.5 rounded-xl border border-dashed border-green-500/50 hover:bg-green-500/10 text-green-500 font-medium transition-colors"
           >
             Load Demo Analysis
-          </button>
+          </button> */}
           {file && (
             <button
               type="button"
