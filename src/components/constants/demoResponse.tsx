@@ -361,9 +361,9 @@ export const demoResponse ={
 
 export const demoUsage = {
   "plan": "pro",
-  "used": 9,
+  "used": 999,
   "limit": 1000,
-  "remaining": 991,
+  "remaining": 1,
   "unlimited": false
 }
 
