@@ -27,6 +27,7 @@ import { WeatherData } from "@/src/components/interface/weatherInterface";
 import { formatDate, getWeatherCondition } from "@/src/lib/weatherConstants";
 import { weatherApi } from "@/src/lib/weatherApi";
 import toast from "react-hot-toast";
+import { demoResponse } from "@/src/components/constants/demoResponse";
 
 // Proper types for Recharts Tooltip
 interface CustomTooltipProps {
@@ -119,6 +120,7 @@ const WeatherAnalysis = () => {
         const { lat, lon } = await getLocation();
         const data = await weatherApi.getWeather(lat, lon, 7);
         setWeather(data);
+        // setWeather(demoResponse) // for demo
       } catch (error) {
         console.error("Error fetching weather data:", error);
         toast.error("Failed to fetch weather data");
@@ -208,7 +210,7 @@ const WeatherAnalysis = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h1 className="text-3xl md:mt-0 mt-12 font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Weather Analytics
           </h1>
           <p className="text-muted text-sm mt-1">

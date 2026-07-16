@@ -194,7 +194,7 @@ const Sidebar = () => {
                 className="relative flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-3 sm:px-4 py-2.5 sm:py-3 text-white transition hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base w-full"
               >
                 <span className="absolute -top-2 -right-1 flex">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-300 opacity-70"></span>
+                  <span className="absolute inline-flex h-full w-full md:animate-ping rounded-full bg-blue-300 opacity-70"></span>
                   <span className="relative uppercase rounded-full bg-blue-400 px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[10px] font-bold text-black shadow-lg">
                     Charts
                   </span>
@@ -212,7 +212,7 @@ const Sidebar = () => {
                 <span className="truncate">Tree Analysis</span>
                 <FaSeedling className="ml-auto h-3 w-3 sm:h-4 sm:w-4 transition group-hover:rotate-12 flex-shrink-0" />
                 <span className="absolute -top-2 -right-2 flex">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-70"></span>
+                  <span className="absolute inline-flex h-full w-full md:animate-ping rounded-full bg-yellow-400 opacity-70"></span>
                   <span className="relative rounded-full bg-yellow-400 px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[10px] font-bold text-black shadow-lg">
                     NEW
                   </span>
@@ -255,7 +255,7 @@ const Sidebar = () => {
                 className="relative flex items-center gap-2 sm:gap-3 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 px-3 sm:px-4 py-2.5 sm:py-3 text-white transition hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base w-full"
               >
                 <span className="absolute -top-2 -right-1 flex">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-300 opacity-70"></span>
+                  <span className="absolute inline-flex h-full w-full md:animate-ping rounded-full bg-blue-300 opacity-70"></span>
                   <span className="relative uppercase rounded-full bg-blue-400 px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[10px] font-bold text-black shadow-lg">
                     Charts
                   </span>
@@ -273,7 +273,7 @@ const Sidebar = () => {
                 <span className="truncate">Tree Analysis</span>
                 <FaSeedling className="ml-auto h-3 w-3 sm:h-4 sm:w-4 transition group-hover:rotate-12 flex-shrink-0" />
                 <span className="absolute -top-2 -right-2 flex">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-70"></span>
+                  <span className="absolute inline-flex h-full w-full md:animate-ping rounded-full bg-yellow-400 opacity-70"></span>
                   <span className="relative rounded-full bg-yellow-400 px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[10px] font-bold text-black shadow-lg">
                     NEW
                   </span>
